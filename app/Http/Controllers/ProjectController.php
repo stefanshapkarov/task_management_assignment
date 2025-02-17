@@ -13,7 +13,7 @@ class ProjectController extends Controller
      */
     public function index(Request $request)
     {
-        $filter = Project::query();
+        $filter = Project::query()->with('tasks');
 
         if ($request->has('due_date')) {
             $filter->where('due_date', $request->due_date);

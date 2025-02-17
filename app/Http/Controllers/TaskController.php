@@ -14,7 +14,7 @@ class TaskController extends Controller
      */
     public function index(Request $request)
     {
-        $filter = Task::query()->with('project');
+        $filter = Task::query()->with('category');
 
         if ($request->has('status')) {
             $filter->where('status', $request->status);
